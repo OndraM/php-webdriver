@@ -37,6 +37,13 @@ class WebDriverCheckboxesTest extends WebDriverTestCase
         $c = new WebDriverCheckboxes(
             $this->driver->findElement(WebDriverBy::xpath('//form[2]//input[@type="checkbox"]'))
         );
+
+        echo $this->driver->getPageSource();
+
+        foreach ($c->getOptions() as $option) {
+            var_dump($option->getAttribute('name'));
+        }
+
         $this->assertNotEmpty($c->getOptions());
     }
 
