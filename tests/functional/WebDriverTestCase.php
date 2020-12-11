@@ -39,7 +39,9 @@ class WebDriverTestCase extends TestCase
             if (getenv('BROWSER_NAME')) {
                 $browserName = getenv('BROWSER_NAME');
             } else {
-                $browserName = WebDriverBrowserType::HTMLUNIT;
+                $this->markTestSkipped(
+                    'To execute functional tests browser name must be provided in BROWSER_NAME environment variable'
+                );
             }
 
             if ($browserName === WebDriverBrowserType::CHROME) {
