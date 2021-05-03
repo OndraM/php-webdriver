@@ -45,12 +45,9 @@ jobs:
       matrix:
         php-version: ['5.6', '7.1', '7.2', '7.3', '7.4', '8.0']
         dependencies: ['']
-        experimental: [false]
         include:
-          - { php-version: '5.6', dependencies: '--prefer-lowest', experimental: false }
-          - { php-version: '8.1', dependencies: '--ignore-platform-req=php', experimental: true }
-
-    continue-on-error: ${{ matrix.experimental }}
+          - { php-version: '5.6', dependencies: '--prefer-lowest' }
+          - { php-version: '8.1', dependencies: '--ignore-platform-req=php' }
 
     steps:
       - uses: actions/checkout@v2
