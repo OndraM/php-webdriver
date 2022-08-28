@@ -18,6 +18,9 @@ jobs:
         selenium-server: [true]
         selenium-server-version:
           - 3.141.59
+          - 4.1.0
+          - 4.2.0
+          - 4.3.0
           - 4.4.0
         w3c: [true]
 
@@ -43,7 +46,7 @@ jobs:
           if [ "$SELENIUM_SERVER_VERSION" = "3.141.59" ]; then
             SELENIUM_SERVER_DOWNLOAD_URL=https://github.com/SeleniumHQ/selenium/releases/download/selenium-3.141.59/selenium-server-standalone-3.141.59.jar
           else
-            SELENIUM_SERVER_DOWNLOAD_URL=https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.4.0/selenium-server-4.4.0.jar
+            SELENIUM_SERVER_DOWNLOAD_URL=https://github.com/SeleniumHQ/selenium/releases/download/selenium-$SELENIUM_SERVER_VERSION/selenium-server-$SELENIUM_SERVER_VERSION.jar
           fi
 
           wget -q -t 3 -O build/selenium-server.jar $SELENIUM_SERVER_DOWNLOAD_URL
