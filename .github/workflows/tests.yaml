@@ -55,7 +55,7 @@ jobs:
             java -jar build/selenium-server.jar -log logs/selenium-server.log &
           else
             java -jar build/selenium-server.jar standalone --version
-            java -jar build/selenium-server.jar standalone --log logs/selenium-server.log &
+            java -jar build/selenium-server.jar standalone --log logs/selenium-server.log --log-level FINEST &
           fi
 
       - name: Start local PHP server
