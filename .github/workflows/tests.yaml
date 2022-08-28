@@ -52,10 +52,10 @@ jobs:
           wget -q -t 3 -O build/selenium-server.jar $SELENIUM_SERVER_DOWNLOAD_URL
           if [ "$SELENIUM_SERVER_VERSION" = "3.141.59" ]; then
             java -jar build/selenium-server.jar -version
-            xvfb-run --server-args="-screen 0, 1280x720x24" --auto-servernum java -jar build/selenium-server.jar -log logs/selenium-server.log &
+            java -jar build/selenium-server.jar -log logs/selenium-server.log &
           else
             java -jar build/selenium-server.jar standalone --version
-            xvfb-run --server-args="-screen 0, 1280x720x24" --auto-servernum java -jar build/selenium-server.jar standalone --log logs/selenium-server.log &
+            java -jar build/selenium-server.jar standalone --log logs/selenium-server.log &
           fi
 
       - name: Start local PHP server
@@ -79,9 +79,3 @@ jobs:
         if: ${{ always() }}
         run: |
           if [ -f ./logs/selenium-server.log ]; then cat ./logs/selenium-server.log; fi
-          if [ -f ./logs/chromedriver.log ]; then cat ./logs/chromedriver.log; fi
-          if [ -f ./logs/geckodriver.log ]; then cat ./logs/geckodriver.log; fi
-          if [ -f ./logs/php-server.log ]; then cat ./logs/php-server.log; fi
-          if [ "$BROWSER_NAME" = "safari" ]; then
-            cat  ~/Library/Logs/com.apple.WebDriver/safaridriver.*
-          fi
