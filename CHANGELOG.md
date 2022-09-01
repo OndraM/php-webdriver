@@ -8,6 +8,7 @@ This project versioning adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Handle errors when taking screenshots. `WebDriverException` is thrown if WebDriver returns empty or invalid screenshot data.
 - Deprecate `FirefoxDriver::PROFILE` constant. Instead, use `setProfile()` method of `FirefoxOptions` to set Firefox Profile.
+- Docs: Add notice for using WebDriverTimeouts with value >30 seconds (you also need to increase request timeout).
 
 ## 1.12.1 - 2022-05-03
 ### Fixed

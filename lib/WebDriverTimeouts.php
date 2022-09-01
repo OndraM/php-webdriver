@@ -28,6 +28,9 @@ class WebDriverTimeouts
     /**
      * Specify the amount of time the driver should wait when searching for an element if it is not immediately present.
      *
+     * If you need to set the value to be more than 30 seconds, you must also accordingly increase
+     * $request_timeout_in_ms value when you create RemoteWebDriver instance (which is by default 30000 ms = 30 sec).
+     *
      * @param int $seconds Wait time in second.
      * @return WebDriverTimeouts The current instance.
      */
@@ -53,6 +56,9 @@ class WebDriverTimeouts
     /**
      * Set the amount of time to wait for an asynchronous script to finish execution before throwing an error.
      *
+     * If you need to set the value to be more than 30 seconds, you must also accordingly increase
+     * $request_timeout_in_ms value when you create RemoteWebDriver instance (which is by default 30000 ms = 30 sec).
+     *
      * @param int $seconds Wait time in second.
      * @return WebDriverTimeouts The current instance.
      */
@@ -77,6 +83,9 @@ class WebDriverTimeouts
 
     /**
      * Set the amount of time to wait for a page load to complete before throwing an error.
+     *
+     * If you need to set the value to be more than 30 seconds, you must also accordingly increase
+     * $request_timeout_in_ms value when you create RemoteWebDriver instance (which is by default 30000 ms = 30 sec).
      *
      * @param int $seconds Wait time in second.
      * @return WebDriverTimeouts The current instance.
