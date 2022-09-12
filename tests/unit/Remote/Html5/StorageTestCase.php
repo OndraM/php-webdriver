@@ -45,8 +45,7 @@ abstract class StorageTestCase extends TestCase
 
         $storage = $this->getStorageInstance($this->executor);
 
-        $value = $storage->getItem('thing-one');
-        $this->assertSame('value-of-thing-one', $value);
+        $this->assertSame('value-of-thing-one', $storage['thing-one']);
     }
 
     public function testShouldReturnAllKeysInStorage()
@@ -70,7 +69,7 @@ abstract class StorageTestCase extends TestCase
 
         $storage = $this->getStorageInstance($this->executor);
 
-        $storage->removeItem('item2');
+        unset($storage['item2']);
     }
 
     public function testShouldSetItemInStorage()
@@ -81,7 +80,7 @@ abstract class StorageTestCase extends TestCase
 
         $storage = $this->getStorageInstance($this->executor);
 
-        $storage->setItem('key2', 'value2');
+        $storage['key2'] = 'value2';
     }
 
     public function testShouldReturnNumberOfItemsInStorage()
@@ -93,8 +92,7 @@ abstract class StorageTestCase extends TestCase
 
         $storage = $this->getStorageInstance($this->executor);
 
-        $size = $storage->size();
-        $this->assertSame(7, $size);
+        $this->assertCount(7, $storage);
     }
 
     /** @return StorageInterface */

@@ -5,7 +5,7 @@ namespace Facebook\WebDriver\Html5;
 /**
  * Represents common operations available for all web storage types (session or local).
  */
-interface StorageInterface
+interface StorageInterface extends \Countable, \ArrayAccess
 {
     /**
      * Remove all the items from the storage.
@@ -19,21 +19,21 @@ interface StorageInterface
      *
      * @return string
      */
-    public function getItem($key);
+    public function offsetGet($key);
 
     /**
      * Get all the keys in storage.
      *
      * @return string[]
      */
-    public function keySet();
+    public function allKeys();
 
     /**
      * Remove a single item from the storage.
      *
      * @param string $key
      */
-    public function removeItem($key);
+    public function offsetUnset($key);
 
     /**
      * Set an item in the storage.
@@ -41,12 +41,18 @@ interface StorageInterface
      * @param string $key
      * @param string $value
      */
-    public function setItem($key, $value);
+    public function offsetSet($key, $value);
+
+    /**
+     * @param string $key
+     * @return bool
+     */
+    public function offsetExists($key);
 
     /**
      * Get the number of keys in the storage.
      *
      * @return int
      */
-    public function size();
+    public function count();
 }

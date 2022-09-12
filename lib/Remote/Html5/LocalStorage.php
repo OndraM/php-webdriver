@@ -29,26 +29,31 @@ class LocalStorage implements LocalStorageInterface
         $this->executor->execute(DriverCommand::CLEAR_LOCAL_STORAGE);
     }
 
-    public function getItem($key)
+    public function offsetGet($key)
     {
         return $this->executor->execute(DriverCommand::GET_LOCAL_STORAGE_ITEM, [
             ':key' => $key,
         ]);
     }
 
-    public function keySet()
+    public function offsetExists($key)
+    {
+        return $this->offsetGet($key) !== null;
+    }
+
+    public function allKeys()
     {
         return $this->executor->execute(DriverCommand::GET_LOCAL_STORAGE_KEYS);
     }
 
-    public function removeItem($key)
+    public function offsetUnset($key)
     {
         $this->executor->execute(DriverCommand::REMOVE_LOCAL_STORAGE_ITEM, [
             ':key' => $key,
         ]);
     }
 
-    public function setItem($key, $value)
+    public function offsetSet($key, $value)
     {
         $this->executor->execute(DriverCommand::SET_LOCAL_STORAGE_ITEM, [
             'key' => $key,
@@ -56,7 +61,7 @@ class LocalStorage implements LocalStorageInterface
         ]);
     }
 
-    public function size()
+    public function count()
     {
         return $this->executor->execute(DriverCommand::GET_LOCAL_STORAGE_SIZE);
     }
