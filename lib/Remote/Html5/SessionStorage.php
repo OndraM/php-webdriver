@@ -2,14 +2,14 @@
 
 namespace Facebook\WebDriver\Remote\Html5;
 
-use Facebook\WebDriver\Html5\LocalStorageInterface;
+use Facebook\WebDriver\Html5\SessionStorageInterface;
 use Facebook\WebDriver\Remote\DriverCommand;
 use Facebook\WebDriver\Remote\RemoteExecuteMethod;
 
 /**
- * Executes the commands to access HTML5 localStorage on the remote webdriver server.
+ * Executes the commands to access HTML5 sessionStorage on the remote webdriver server.
  */
-class RemoteLocalStorage implements LocalStorageInterface
+class SessionStorage implements SessionStorageInterface
 {
     /**
      * @var RemoteExecuteMethod
@@ -26,31 +26,31 @@ class RemoteLocalStorage implements LocalStorageInterface
 
     public function clear()
     {
-        $this->executor->execute(DriverCommand::CLEAR_LOCAL_STORAGE);
+        $this->executor->execute(DriverCommand::CLEAR_SESSION_STORAGE);
     }
 
     public function getItem($key)
     {
-        return $this->executor->execute(DriverCommand::GET_LOCAL_STORAGE_ITEM, [
+        return $this->executor->execute(DriverCommand::GET_SESSION_STORAGE_ITEM, [
             ':key' => $key,
         ]);
     }
 
     public function keySet()
     {
-        return $this->executor->execute(DriverCommand::GET_LOCAL_STORAGE_KEYS);
+        return $this->executor->execute(DriverCommand::GET_SESSION_STORAGE_KEYS);
     }
 
     public function removeItem($key)
     {
-        $this->executor->execute(DriverCommand::REMOVE_LOCAL_STORAGE_ITEM, [
+        $this->executor->execute(DriverCommand::REMOVE_SESSION_STORAGE_ITEM, [
             ':key' => $key,
         ]);
     }
 
     public function setItem($key, $value)
     {
-        $this->executor->execute(DriverCommand::SET_LOCAL_STORAGE_ITEM, [
+        $this->executor->execute(DriverCommand::SET_SESSION_STORAGE_ITEM, [
             'key' => $key,
             'value' => $value,
         ]);
@@ -58,6 +58,6 @@ class RemoteLocalStorage implements LocalStorageInterface
 
     public function size()
     {
-        return $this->executor->execute(DriverCommand::GET_LOCAL_STORAGE_SIZE);
+        return $this->executor->execute(DriverCommand::GET_SESSION_STORAGE_SIZE);
     }
 }

@@ -8,7 +8,7 @@ use Facebook\WebDriver\Remote\RemoteExecuteMethod;
 /**
  * Provides remote access to the WebStorage API.
  */
-class RemoteWebStorage implements WebStorageInterface
+class WebStorage implements WebStorageInterface
 {
     /**
      * @var RemoteExecuteMethod
@@ -25,11 +25,11 @@ class RemoteWebStorage implements WebStorageInterface
 
     public function getLocalStorage()
     {
-        return new RemoteLocalStorage($this->executor);
+        return new LocalStorage($this->executor);
     }
 
     public function getSessionStorage()
     {
-        return new RemoteSessionStorage($this->executor);
+        return new SessionStorage($this->executor);
     }
 }

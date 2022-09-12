@@ -6,7 +6,7 @@ use Facebook\WebDriver\Exception\UnknownErrorException;
 use Facebook\WebDriver\Html5\WebStorageInterface;
 use Facebook\WebDriver\Interactions\WebDriverActions;
 use Facebook\WebDriver\JavaScriptExecutor;
-use Facebook\WebDriver\Remote\Html5\RemoteWebStorage;
+use Facebook\WebDriver\Remote\Html5\WebStorage;
 use Facebook\WebDriver\Support\ScreenshotHelper;
 use Facebook\WebDriver\WebDriver;
 use Facebook\WebDriver\WebDriverBy;
@@ -451,7 +451,7 @@ class RemoteWebDriver implements WebDriver, JavaScriptExecutor, WebDriverHasInpu
      */
     public function storage()
     {
-        return new RemoteWebStorage($this->getExecuteMethod());
+        return new WebStorage($this->getExecuteMethod());
     }
 
     /**

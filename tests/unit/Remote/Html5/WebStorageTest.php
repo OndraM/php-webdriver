@@ -8,9 +8,9 @@ use Facebook\WebDriver\Remote\RemoteExecuteMethod;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Facebook\WebDriver\Remote\Html5\RemoteWebStorage
+ * @covers \Facebook\WebDriver\Remote\Html5\WebStorage
  */
-class RemoteWebStorageTest extends TestCase
+class WebStorageTest extends TestCase
 {
     /** @var RemoteExecuteMethod|\PHPUnit\Framework\MockObject\MockObject */
     private $executor;
@@ -24,19 +24,19 @@ class RemoteWebStorageTest extends TestCase
 
     public function testShouldReturnLocalStorage()
     {
-        $storage = new RemoteWebStorage($this->executor);
+        $storage = new WebStorage($this->executor);
 
         $local = $storage->getLocalStorage();
-        $this->assertInstanceOf(RemoteLocalStorage::class, $local);
+        $this->assertInstanceOf(LocalStorage::class, $local);
         $this->assertInstanceOf(LocalStorageInterface::class, $local);
     }
 
     public function testShouldReturnSessionStorage()
     {
-        $storage = new RemoteWebStorage($this->executor);
+        $storage = new WebStorage($this->executor);
 
         $session = $storage->getSessionStorage();
-        $this->assertInstanceOf(RemoteSessionStorage::class, $session);
+        $this->assertInstanceOf(SessionStorage::class, $session);
         $this->assertInstanceOf(SessionStorageInterface::class, $session);
     }
 }
