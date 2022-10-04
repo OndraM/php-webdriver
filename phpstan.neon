@@ -20,6 +20,9 @@ parameters:
           path: 'lib/Support/Events/EventFiringWebElement.php'
         - '#Unsafe usage of new static\(\)#'
 
+        # False positive
+        - message: '#Call to an undefined method Facebook\\WebDriver\\WebDriver::(executeScript|executeAsyncScript)\(\)#'
+          path: 'lib/Support/Events/EventFiringWebDriver.php'
         # Parameter is intentionally not part of signature to not break BC
         - message: '#PHPDoc tag \@param references unknown parameter: \$isW3cCompliant#'
           path: 'lib/Remote/RemoteWebDriver.php'
