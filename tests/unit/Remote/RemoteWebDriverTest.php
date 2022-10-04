@@ -28,7 +28,7 @@ class RemoteWebDriverTest extends TestCase
     /**
      * @covers ::manage
      */
-    public function testShouldCreateWebDriverOptionsInstance()
+    public function testShouldCreateWebDriverOptionsInstance(): void
     {
         $wait = $this->driver->manage();
 
@@ -38,7 +38,7 @@ class RemoteWebDriverTest extends TestCase
     /**
      * @covers ::navigate
      */
-    public function testShouldCreateWebDriverNavigationInstance()
+    public function testShouldCreateWebDriverNavigationInstance(): void
     {
         $wait = $this->driver->navigate();
 
@@ -48,7 +48,7 @@ class RemoteWebDriverTest extends TestCase
     /**
      * @covers ::switchTo
      */
-    public function testShouldCreateRemoteTargetLocatorInstance()
+    public function testShouldCreateRemoteTargetLocatorInstance(): void
     {
         $wait = $this->driver->switchTo();
 
@@ -58,7 +58,7 @@ class RemoteWebDriverTest extends TestCase
     /**
      * @covers ::getMouse
      */
-    public function testShouldCreateRemoteMouseInstance()
+    public function testShouldCreateRemoteMouseInstance(): void
     {
         $wait = $this->driver->getMouse();
 
@@ -68,7 +68,7 @@ class RemoteWebDriverTest extends TestCase
     /**
      * @covers ::getKeyboard
      */
-    public function testShouldCreateRemoteKeyboardInstance()
+    public function testShouldCreateRemoteKeyboardInstance(): void
     {
         $wait = $this->driver->getKeyboard();
 
@@ -78,7 +78,7 @@ class RemoteWebDriverTest extends TestCase
     /**
      * @covers ::getTouch
      */
-    public function testShouldCreateRemoteTouchScreenInstance()
+    public function testShouldCreateRemoteTouchScreenInstance(): void
     {
         $wait = $this->driver->getTouch();
 
@@ -88,7 +88,7 @@ class RemoteWebDriverTest extends TestCase
     /**
      * @covers ::action
      */
-    public function testShouldCreateWebDriverActionsInstance()
+    public function testShouldCreateWebDriverActionsInstance(): void
     {
         $wait = $this->driver->action();
 
@@ -98,7 +98,7 @@ class RemoteWebDriverTest extends TestCase
     /**
      * @covers ::wait
      */
-    public function testShouldCreateWebDriverWaitInstance()
+    public function testShouldCreateWebDriverWaitInstance(): void
     {
         $wait = $this->driver->wait(15, 1337);
 
@@ -110,7 +110,7 @@ class RemoteWebDriverTest extends TestCase
      * @param string $expectedExceptionMessage
      * @dataProvider provideMethods
      */
-    public function testShouldThrowExceptionOnUnexpectedNullValueFromRemoteEnd($method, $expectedExceptionMessage)
+    public function testShouldThrowExceptionOnUnexpectedNullValueFromRemoteEnd($method, $expectedExceptionMessage): void
     {
         $executorMock = $this->createMock(HttpCommandExecutor::class);
         $executorMock->expects($this->once())

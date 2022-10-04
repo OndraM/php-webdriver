@@ -58,7 +58,7 @@ class CustomWebDriverCommand extends WebDriverCommand
      * @param string $custom_method
      * @throws WebDriverException
      */
-    protected function setCustomRequestParameters($custom_url, $custom_method)
+    protected function setCustomRequestParameters($custom_url, $custom_method): void
     {
         $allowedMethods = [static::METHOD_GET, static::METHOD_POST];
         if (!in_array($custom_method, $allowedMethods, true)) {

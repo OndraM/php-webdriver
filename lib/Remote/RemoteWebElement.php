@@ -564,7 +564,7 @@ class RemoteWebElement implements WebDriverElement, WebDriverLocatable
      * @see https://github.com/mozilla/geckodriver/issues/653
      * @see https://bugzilla.mozilla.org/show_bug.cgi?id=1374283
      */
-    protected function clickChildElement(ElementNotInteractableException $originalException)
+    protected function clickChildElement(ElementNotInteractableException $originalException): void
     {
         $children = $this->findElements(WebDriverBy::xpath('./*'));
         foreach ($children as $child) {

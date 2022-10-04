@@ -6,7 +6,7 @@ use Facebook\WebDriver\WebDriverAction;
 
 class WebDriverMouseMoveAction extends WebDriverMouseAction implements WebDriverAction
 {
-    public function perform()
+    public function perform(): void
     {
         $this->mouse->mouseMove($this->getActionLocation());
     }

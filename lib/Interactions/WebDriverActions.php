@@ -39,7 +39,7 @@ class WebDriverActions
     /**
      * A convenience method for performing the actions without calling build().
      */
-    public function perform()
+    public function perform(): void
     {
         $this->action->perform();
     }

@@ -27,7 +27,7 @@ class WebDriverFlickAction extends WebDriverTouchAction implements WebDriverActi
         parent::__construct($touch_screen);
     }
 
-    public function perform()
+    public function perform(): void
     {
         $this->touchScreen->flick($this->x, $this->y);
     }

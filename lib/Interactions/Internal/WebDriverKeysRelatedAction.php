@@ -39,7 +39,7 @@ abstract class WebDriverKeysRelatedAction
         $this->locationProvider = $location_provider;
     }
 
-    protected function focusOnElement()
+    protected function focusOnElement(): void
     {
         if ($this->locationProvider) {
             $this->mouse->click($this->locationProvider->getCoordinates());

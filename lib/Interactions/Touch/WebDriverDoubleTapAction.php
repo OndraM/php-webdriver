@@ -6,7 +6,7 @@ use Facebook\WebDriver\WebDriverAction;
 
 class WebDriverDoubleTapAction extends WebDriverTouchAction implements WebDriverAction
 {
-    public function perform()
+    public function perform(): void
     {
         $this->touchScreen->doubleTap($this->locationProvider);
     }

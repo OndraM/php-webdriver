@@ -21,7 +21,7 @@ class WebDriverMoveAction extends WebDriverTouchAction implements WebDriverActio
         parent::__construct($touch_screen);
     }
 
-    public function perform()
+    public function perform(): void
     {
         $this->touchScreen->move($this->x, $this->y);
     }

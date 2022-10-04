@@ -63,7 +63,7 @@ class FirefoxProfileTest extends TestCase
         }
     }
 
-    public function testShouldStartDriverWithEmptyProfile()
+    public function testShouldStartDriverWithEmptyProfile(): void
     {
         $firefoxProfile = new FirefoxProfile();
         $this->startFirefoxDriverWithProfile($firefoxProfile);
@@ -76,7 +76,7 @@ class FirefoxProfileTest extends TestCase
         );
     }
 
-    public function testShouldInstallExtension()
+    public function testShouldInstallExtension(): void
     {
         $firefoxProfile = new FirefoxProfile();
         $firefoxProfile->addExtension($this->firefoxTestExtensionFilename);
@@ -90,7 +90,7 @@ class FirefoxProfileTest extends TestCase
         $this->assertEquals('This element was added by browser extension', $element->getText());
     }
 
-    public function testShouldUseProfilePreferences()
+    public function testShouldUseProfilePreferences(): void
     {
         $firefoxProfile = new FirefoxProfile();
 
@@ -120,7 +120,7 @@ class FirefoxProfileTest extends TestCase
         return $host . '/' . $path;
     }
 
-    private function startFirefoxDriverWithProfile(FirefoxProfile $firefoxProfile)
+    private function startFirefoxDriverWithProfile(FirefoxProfile $firefoxProfile): void
     {
         // The createDefaultService() method expect path to the executable to be present in the environment variable
         putenv(FirefoxDriverService::WEBDRIVER_FIREFOX_DRIVER . '=' . getenv('GECKODRIVER_PATH'));

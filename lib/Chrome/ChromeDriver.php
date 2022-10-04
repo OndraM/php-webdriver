@@ -71,7 +71,7 @@ class ChromeDriver extends LocalWebDriver
      * @codeCoverageIgnore
      * @internal
      */
-    public function startSession(DesiredCapabilities $desired_capabilities)
+    public function startSession(DesiredCapabilities $desired_capabilities): void
     {
         $command = WebDriverCommand::newSession(
             [

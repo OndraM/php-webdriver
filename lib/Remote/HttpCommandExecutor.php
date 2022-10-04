@@ -225,7 +225,7 @@ class HttpCommandExecutor implements WebDriverCommandExecutor
         $this->setRequestTimeout(180 * 1000); // 3 minutes
     }
 
-    public function disableW3cCompliance()
+    public function disableW3cCompliance(): void
     {
         $this->isW3cCompliant = false;
     }

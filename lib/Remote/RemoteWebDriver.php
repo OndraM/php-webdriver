@@ -318,7 +318,7 @@ class RemoteWebDriver implements WebDriver, JavaScriptExecutor, WebDriverHasInpu
     /**
      * Quits this driver, closing every associated window.
      */
-    public function quit()
+    public function quit(): void
     {
         $this->execute(DriverCommand::QUIT);
         $this->executor = null;

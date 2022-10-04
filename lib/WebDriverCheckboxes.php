@@ -24,29 +24,29 @@ class WebDriverCheckboxes extends AbstractWebDriverCheckboxOrRadio
         return true;
     }
 
-    public function deselectAll()
+    public function deselectAll(): void
     {
         foreach ($this->getRelatedElements() as $checkbox) {
             $this->deselectOption($checkbox);
         }
     }
 
-    public function deselectByIndex($index)
+    public function deselectByIndex($index): void
     {
         $this->byIndex($index, false);
     }
 
-    public function deselectByValue($value)
+    public function deselectByValue($value): void
     {
         $this->byValue($value, false);
     }
 
-    public function deselectByVisibleText($text)
+    public function deselectByVisibleText($text): void
     {
         $this->byVisibleText($text, false, false);
     }
 
-    public function deselectByVisiblePartialText($text)
+    public function deselectByVisiblePartialText($text): void
     {
         $this->byVisibleText($text, true, false);
     }

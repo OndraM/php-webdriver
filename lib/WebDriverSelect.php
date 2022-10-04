@@ -66,7 +66,7 @@ class WebDriverSelect implements WebDriverSelectInterface
         throw new NoSuchElementException('No options are selected');
     }
 
-    public function selectByIndex($index)
+    public function selectByIndex($index): void
     {
         foreach ($this->getOptions() as $option) {
             if ($option->getAttribute('index') === (string) $index) {
@@ -79,7 +79,7 @@ class WebDriverSelect implements WebDriverSelectInterface
         throw new NoSuchElementException(sprintf('Cannot locate option with index: %d', $index));
     }
 
-    public function selectByValue($value)
+    public function selectByValue($value): void
     {
         $matched = false;
         $xpath = './/option[@value = ' . XPathEscaper::escapeQuotes($value) . ']';
@@ -100,7 +100,7 @@ class WebDriverSelect implements WebDriverSelectInterface
         }
     }
 
-    public function selectByVisibleText($text)
+    public function selectByVisibleText($text): void
     {
         $matched = false;
         $xpath = './/option[normalize-space(.) = ' . XPathEscaper::escapeQuotes($text) . ']';
@@ -135,7 +135,7 @@ class WebDriverSelect implements WebDriverSelectInterface
         }
     }
 
-    public function selectByVisiblePartialText($text)
+    public function selectByVisiblePartialText($text): void
     {
         $matched = false;
         $xpath = './/option[contains(normalize-space(.), ' . XPathEscaper::escapeQuotes($text) . ')]';
@@ -156,7 +156,7 @@ class WebDriverSelect implements WebDriverSelectInterface
         }
     }
 
-    public function deselectAll()
+    public function deselectAll(): void
     {
         if (!$this->isMultiple()) {
             throw new UnsupportedOperationException('You may only deselect all options of a multi-select');
@@ -167,7 +167,7 @@ class WebDriverSelect implements WebDriverSelectInterface
         }
     }
 
-    public function deselectByIndex($index)
+    public function deselectByIndex($index): void
     {
         if (!$this->isMultiple()) {
             throw new UnsupportedOperationException('You may only deselect options of a multi-select');
@@ -182,7 +182,7 @@ class WebDriverSelect implements WebDriverSelectInterface
         }
     }
 
-    public function deselectByValue($value)
+    public function deselectByValue($value): void
     {
         if (!$this->isMultiple()) {
             throw new UnsupportedOperationException('You may only deselect options of a multi-select');
@@ -195,7 +195,7 @@ class WebDriverSelect implements WebDriverSelectInterface
         }
     }
 
-    public function deselectByVisibleText($text)
+    public function deselectByVisibleText($text): void
     {
         if (!$this->isMultiple()) {
             throw new UnsupportedOperationException('You may only deselect options of a multi-select');
@@ -208,7 +208,7 @@ class WebDriverSelect implements WebDriverSelectInterface
         }
     }
 
-    public function deselectByVisiblePartialText($text)
+    public function deselectByVisiblePartialText($text): void
     {
         if (!$this->isMultiple()) {
             throw new UnsupportedOperationException('You may only deselect options of a multi-select');
@@ -225,7 +225,7 @@ class WebDriverSelect implements WebDriverSelectInterface
      * Mark option selected
      * @param WebDriverElement $option
      */
-    protected function selectOption(WebDriverElement $option)
+    protected function selectOption(WebDriverElement $option): void
     {
         if (!$option->isSelected()) {
             $option->click();
@@ -236,7 +236,7 @@ class WebDriverSelect implements WebDriverSelectInterface
      * Mark option not selected
      * @param WebDriverElement $option
      */
-    protected function deselectOption(WebDriverElement $option)
+    protected function deselectOption(WebDriverElement $option): void
     {
         if ($option->isSelected()) {
             $option->click();

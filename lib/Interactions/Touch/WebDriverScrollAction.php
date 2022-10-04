@@ -21,7 +21,7 @@ class WebDriverScrollAction extends WebDriverTouchAction implements WebDriverAct
         parent::__construct($touch_screen);
     }
 
-    public function perform()
+    public function perform(): void
     {
         $this->touchScreen->scroll($this->x, $this->y);
     }

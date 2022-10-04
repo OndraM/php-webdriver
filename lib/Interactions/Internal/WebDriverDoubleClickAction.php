@@ -6,7 +6,7 @@ use Facebook\WebDriver\WebDriverAction;
 
 class WebDriverDoubleClickAction extends WebDriverMouseAction implements WebDriverAction
 {
-    public function perform()
+    public function perform(): void
     {
         $this->mouse->doubleClick($this->getActionLocation());
     }

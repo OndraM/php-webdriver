@@ -123,7 +123,7 @@ class EventFiringWebDriverNavigation implements WebDriverNavigationInterface
      * @param mixed $method
      * @param mixed ...$arguments
      */
-    protected function dispatch($method, ...$arguments)
+    protected function dispatch($method, ...$arguments): void
     {
         if (!$this->dispatcher) {
             return;
@@ -135,7 +135,7 @@ class EventFiringWebDriverNavigation implements WebDriverNavigationInterface
     /**
      * @param WebDriverException $exception
      */
-    protected function dispatchOnException(WebDriverException $exception)
+    protected function dispatchOnException(WebDriverException $exception): void
     {
         $this->dispatch('onException', $exception);
     }

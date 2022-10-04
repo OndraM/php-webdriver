@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class WebDriverExceptionTest extends TestCase
 {
-    public function testShouldStoreResultsOnInstantiation()
+    public function testShouldStoreResultsOnInstantiation(): void
     {
         $exception = new WebDriverException('exception message', ['foo', 'bar']);
 
@@ -21,7 +21,7 @@ class WebDriverExceptionTest extends TestCase
      * @param int $errorCode
      * @param string $expectedExceptionType
      */
-    public function testShouldThrowProperExceptionBasedOnWebDriverErrorCode($errorCode, $expectedExceptionType)
+    public function testShouldThrowProperExceptionBasedOnWebDriverErrorCode($errorCode, $expectedExceptionType): void
     {
         try {
             WebDriverException::throwException($errorCode, 'exception message', ['results']);

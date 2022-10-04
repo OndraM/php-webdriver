@@ -41,7 +41,7 @@ class WebDriverMouseAction
         return null;
     }
 
-    protected function moveToLocation()
+    protected function moveToLocation(): void
     {
         $this->mouse->mouseMove($this->locationProvider);
     }

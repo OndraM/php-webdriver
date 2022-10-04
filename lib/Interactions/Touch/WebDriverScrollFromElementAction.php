@@ -27,7 +27,7 @@ class WebDriverScrollFromElementAction extends WebDriverTouchAction implements W
         parent::__construct($touch_screen, $element);
     }
 
-    public function perform()
+    public function perform(): void
     {
         $this->touchScreen->scrollFromElement(
             $this->locationProvider,

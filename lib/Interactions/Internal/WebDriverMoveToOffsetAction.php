@@ -34,7 +34,7 @@ class WebDriverMoveToOffsetAction extends WebDriverMouseAction implements WebDri
         $this->yOffset = $y_offset;
     }
 
-    public function perform()
+    public function perform(): void
     {
         $this->mouse->mouseMove(
             $this->getActionLocation(),

@@ -110,14 +110,14 @@ class WebDriverTestCase extends TestCase
         return getenv('DISABLE_W3C_PROTOCOL') !== '1';
     }
 
-    public static function skipForW3cProtocol($message = 'Not supported by W3C specification')
+    public static function skipForW3cProtocol($message = 'Not supported by W3C specification'): void
     {
         if (static::isW3cProtocolBuild()) {
             static::markTestSkipped($message);
         }
     }
 
-    public static function skipForJsonWireProtocol($message = 'Not supported by JsonWire protocol')
+    public static function skipForJsonWireProtocol($message = 'Not supported by JsonWire protocol'): void
     {
         if (!static::isW3cProtocolBuild()) {
             static::markTestSkipped($message);
@@ -130,7 +130,7 @@ class WebDriverTestCase extends TestCase
      * @param string[] $browsers List of browsers for this test
      * @param string|null $message
      */
-    public static function skipForUnmatchedBrowsers($browsers = [], $message = null)
+    public static function skipForUnmatchedBrowsers($browsers = [], $message = null): void
     {
         $browserName = (string) getenv('BROWSER_NAME');
         if (!in_array($browserName, $browsers, true)) {
@@ -183,7 +183,7 @@ class WebDriverTestCase extends TestCase
         return $host . '/' . $path;
     }
 
-    protected function setUpSauceLabs()
+    protected function setUpSauceLabs(): void
     {
         $this->serverUrl = sprintf(
             'http://%s:%s@ondemand.saucelabs.com/wd/hub',
@@ -241,7 +241,7 @@ class WebDriverTestCase extends TestCase
      * @param string $haystack
      * @param string $message
      */
-    protected function compatAssertStringContainsString($needle, $haystack, $message = '')
+    protected function compatAssertStringContainsString($needle, $haystack, $message = ''): void
     {
         if (method_exists($this, 'assertStringContainsString')) {
             parent::assertStringContainsString($needle, $haystack, $message);
@@ -251,7 +251,7 @@ class WebDriverTestCase extends TestCase
         parent::assertContains($needle, $haystack, $message);
     }
 
-    protected function createWebDriver()
+    protected function createWebDriver(): void
     {
         $this->driver = RemoteWebDriver::create(
             $this->serverUrl,

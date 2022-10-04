@@ -27,7 +27,7 @@ class WebDriverDownAction extends WebDriverTouchAction implements WebDriverActio
         parent::__construct($touch_screen);
     }
 
-    public function perform()
+    public function perform(): void
     {
         $this->touchScreen->down($this->x, $this->y);
     }

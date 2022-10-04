@@ -86,7 +86,7 @@ class Cookie implements \ArrayAccess
      *
      * @param string $path
      */
-    public function setPath($path)
+    public function setPath($path): void
     {
         $this->offsetSet('path', $path);
     }
@@ -104,7 +104,7 @@ class Cookie implements \ArrayAccess
      *
      * @param string $domain
      */
-    public function setDomain($domain)
+    public function setDomain($domain): void
     {
         if (mb_strpos($domain, ':') !== false) {
             throw new InvalidArgumentException(sprintf('Cookie domain "%s" should not contain a port', $domain));
@@ -126,7 +126,7 @@ class Cookie implements \ArrayAccess
      *
      * @param int $expiry
      */
-    public function setExpiry($expiry)
+    public function setExpiry($expiry): void
     {
         $this->offsetSet('expiry', (int) $expiry);
     }
@@ -144,7 +144,7 @@ class Cookie implements \ArrayAccess
      *
      * @param bool $secure
      */
-    public function setSecure($secure)
+    public function setSecure($secure): void
     {
         $this->offsetSet('secure', $secure);
     }
@@ -162,7 +162,7 @@ class Cookie implements \ArrayAccess
      *
      * @param bool $httpOnly
      */
-    public function setHttpOnly($httpOnly)
+    public function setHttpOnly($httpOnly): void
     {
         $this->offsetSet('httpOnly', $httpOnly);
     }
@@ -180,7 +180,7 @@ class Cookie implements \ArrayAccess
      *
      * @param string $sameSite
      */
-    public function setSameSite($sameSite)
+    public function setSameSite($sameSite): void
     {
         $this->offsetSet('sameSite', $sameSite);
     }
@@ -233,7 +233,7 @@ class Cookie implements \ArrayAccess
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if ($value === null) {
             unset($this->cookie[$offset]);
@@ -247,7 +247,7 @@ class Cookie implements \ArrayAccess
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->cookie[$offset]);
     }
@@ -255,7 +255,7 @@ class Cookie implements \ArrayAccess
     /**
      * @param string $name
      */
-    protected function validateCookieName($name)
+    protected function validateCookieName($name): void
     {
         if ($name === null || $name === '') {
             throw new InvalidArgumentException('Cookie name should be non-empty');
@@ -269,7 +269,7 @@ class Cookie implements \ArrayAccess
     /**
      * @param string $value
      */
-    protected function validateCookieValue($value)
+    protected function validateCookieValue($value): void
     {
         if ($value === null) {
             throw new InvalidArgumentException('Cookie value is required when setting a cookie');

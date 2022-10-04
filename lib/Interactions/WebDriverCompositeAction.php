@@ -40,7 +40,7 @@ class WebDriverCompositeAction implements WebDriverAction
     /**
      * Perform the sequence of actions.
      */
-    public function perform()
+    public function perform(): void
     {
         foreach ($this->actions as $action) {
             $action->perform();

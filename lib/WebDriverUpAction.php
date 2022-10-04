@@ -22,7 +22,7 @@ class WebDriverUpAction extends WebDriverTouchAction implements WebDriverAction
         parent::__construct($touch_screen);
     }
 
-    public function perform()
+    public function perform(): void
     {
         $this->touchScreen->up($this->x, $this->y);
     }

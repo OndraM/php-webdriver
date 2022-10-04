@@ -252,7 +252,7 @@ class RemoteMouse implements WebDriverMouse
     /**
      * @param WebDriverCoordinates $where
      */
-    protected function moveIfNeeded(WebDriverCoordinates $where = null)
+    protected function moveIfNeeded(WebDriverCoordinates $where = null): void
     {
         if ($where) {
             $this->mouseMove($where);

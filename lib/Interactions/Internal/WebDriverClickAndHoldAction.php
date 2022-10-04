@@ -9,7 +9,7 @@ use Facebook\WebDriver\WebDriverAction;
  */
 class WebDriverClickAndHoldAction extends WebDriverMouseAction implements WebDriverAction
 {
-    public function perform()
+    public function perform(): void
     {
         $this->mouse->mouseDown($this->getActionLocation());
     }

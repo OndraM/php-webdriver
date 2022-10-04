@@ -125,7 +125,7 @@ class DriverService
      * @param string $executable
      * @throws Exception
      */
-    protected function setExecutable($executable)
+    protected function setExecutable($executable): void
     {
         if ($this->isExecutable($executable)) {
             $this->executable = $executable;
@@ -145,7 +145,7 @@ class DriverService
     /**
      * @param Process $process
      */
-    protected function checkWasStarted($process)
+    protected function checkWasStarted($process): void
     {
         usleep(10000); // wait 10ms, otherwise the asynchronous process failure may not yet be propagated
 

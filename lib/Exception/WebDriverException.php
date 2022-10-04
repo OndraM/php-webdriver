@@ -84,7 +84,7 @@ class WebDriverException extends Exception
      * @throws UnsupportedOperationException
      * @throws XPathLookupException
      */
-    public static function throwException($status_code, $message, $results)
+    public static function throwException($status_code, $message, $results): void
     {
         if (is_string($status_code)) {
             // @see https://w3c.github.io/webdriver/#errors

@@ -59,14 +59,14 @@ class ScreenshotHelper
         return $screenshot;
     }
 
-    private function saveScreenshotToPath($screenshot, $path)
+    private function saveScreenshotToPath($screenshot, $path): void
     {
         $this->createDirectoryIfNotExists(dirname($path));
 
         file_put_contents($path, $screenshot);
     }
 
-    private function createDirectoryIfNotExists($directoryPath)
+    private function createDirectoryIfNotExists($directoryPath): void
     {
         if (!file_exists($directoryPath)) {
             if (!mkdir($directoryPath, 0777, true) && !is_dir($directoryPath)) {

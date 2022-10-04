@@ -391,7 +391,7 @@ class EventFiringWebElement implements WebDriverElement, WebDriverLocatable
     /**
      * @param WebDriverException $exception
      */
-    protected function dispatchOnException(WebDriverException $exception)
+    protected function dispatchOnException(WebDriverException $exception): void
     {
         $this->dispatch(
             'onException',
@@ -404,7 +404,7 @@ class EventFiringWebElement implements WebDriverElement, WebDriverLocatable
      * @param mixed $method
      * @param mixed ...$arguments
      */
-    protected function dispatch($method, ...$arguments)
+    protected function dispatch($method, ...$arguments): void
     {
         if (!$this->dispatcher) {
             return;

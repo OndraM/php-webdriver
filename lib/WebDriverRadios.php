@@ -25,27 +25,27 @@ class WebDriverRadios extends AbstractWebDriverCheckboxOrRadio
         return false;
     }
 
-    public function deselectAll()
+    public function deselectAll(): void
     {
         throw new UnsupportedOperationException('You cannot deselect radio buttons');
     }
 
-    public function deselectByIndex($index)
+    public function deselectByIndex($index): void
     {
         throw new UnsupportedOperationException('You cannot deselect radio buttons');
     }
 
-    public function deselectByValue($value)
+    public function deselectByValue($value): void
     {
         throw new UnsupportedOperationException('You cannot deselect radio buttons');
     }
 
-    public function deselectByVisibleText($text)
+    public function deselectByVisibleText($text): void
     {
         throw new UnsupportedOperationException('You cannot deselect radio buttons');
     }
 
-    public function deselectByVisiblePartialText($text)
+    public function deselectByVisiblePartialText($text): void
     {
         throw new UnsupportedOperationException('You cannot deselect radio buttons');
     }

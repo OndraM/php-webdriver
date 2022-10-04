@@ -40,7 +40,7 @@ class WebDriverFlickFromElementAction extends WebDriverTouchAction implements We
         parent::__construct($touch_screen, $element);
     }
 
-    public function perform()
+    public function perform(): void
     {
         $this->touchScreen->flickFromElement(
             $this->locationProvider,

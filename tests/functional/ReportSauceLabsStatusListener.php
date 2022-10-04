@@ -96,7 +96,7 @@ class ReportSauceLabsStatusListener implements TestListener
      * @param string $url
      * @param array $data
      */
-    private function submitToSauceLabs($url, array $data)
+    private function submitToSauceLabs($url, array $data): void
     {
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PUT');

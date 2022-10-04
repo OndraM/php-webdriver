@@ -6,7 +6,7 @@ use Facebook\WebDriver\WebDriverAction;
 
 class WebDriverTapAction extends WebDriverTouchAction implements WebDriverAction
 {
-    public function perform()
+    public function perform(): void
     {
         $this->touchScreen->tap($this->locationProvider);
     }

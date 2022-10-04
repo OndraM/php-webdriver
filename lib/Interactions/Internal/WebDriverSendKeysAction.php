@@ -30,7 +30,7 @@ class WebDriverSendKeysAction extends WebDriverKeysRelatedAction implements WebD
         $this->keys = $keys;
     }
 
-    public function perform()
+    public function perform(): void
     {
         $this->focusOnElement();
         $this->keyboard->sendKeys($this->keys);

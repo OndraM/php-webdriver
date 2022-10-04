@@ -264,7 +264,7 @@ class EventFiringWebDriver implements WebDriver, JavaScriptExecutor
     /**
      * @throws WebDriverException
      */
-    public function quit()
+    public function quit(): void
     {
         try {
             $this->driver->quit();
@@ -387,7 +387,7 @@ class EventFiringWebDriver implements WebDriver, JavaScriptExecutor
      * @param mixed $method
      * @param mixed ...$arguments
      */
-    protected function dispatch($method, ...$arguments)
+    protected function dispatch($method, ...$arguments): void
     {
         if (!$this->dispatcher) {
             return;
@@ -399,7 +399,7 @@ class EventFiringWebDriver implements WebDriver, JavaScriptExecutor
     /**
      * @param WebDriverException $exception
      */
-    protected function dispatchOnException(WebDriverException $exception)
+    protected function dispatchOnException(WebDriverException $exception): void
     {
         $this->dispatch('onException', $exception, $this);
     }

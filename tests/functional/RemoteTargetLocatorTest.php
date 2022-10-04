@@ -9,7 +9,7 @@ use Facebook\WebDriver\Remote\RemoteWebElement;
  */
 class RemoteTargetLocatorTest extends WebDriverTestCase
 {
-    public function testShouldSwitchToWindow()
+    public function testShouldSwitchToWindow(): void
     {
         $this->driver->get($this->getTestPageUrl(TestPage::OPEN_NEW_WINDOW));
         $originalWindowHandle = $this->driver->getWindowHandle();
@@ -47,7 +47,7 @@ class RemoteTargetLocatorTest extends WebDriverTestCase
         $this->assertNotSame($originalWindowHandle, $this->driver->getWindowHandle());
     }
 
-    public function testActiveElement()
+    public function testActiveElement(): void
     {
         $this->driver->get($this->getTestPageUrl(TestPage::INDEX));
 
@@ -61,7 +61,7 @@ class RemoteTargetLocatorTest extends WebDriverTestCase
         $this->assertSame('test_name', $activeElement->getAttribute('name'));
     }
 
-    public function testShouldSwitchToFrameByItsId()
+    public function testShouldSwitchToFrameByItsId(): void
     {
         $parentPage = 'This is the host page which contains an iFrame';
         $firstChildFrame = 'This is the content of the iFrame';
@@ -90,7 +90,7 @@ class RemoteTargetLocatorTest extends WebDriverTestCase
         $this->compatAssertStringContainsString($parentPage, $this->driver->getPageSource());
     }
 
-    public function testShouldSwitchToParentFrame()
+    public function testShouldSwitchToParentFrame(): void
     {
         $parentPage = 'This is the host page which contains an iFrame';
         $firstChildFrame = 'This is the content of the iFrame';
@@ -106,7 +106,7 @@ class RemoteTargetLocatorTest extends WebDriverTestCase
         $this->compatAssertStringContainsString($parentPage, $this->driver->getPageSource());
     }
 
-    public function testShouldSwitchToFrameByElement()
+    public function testShouldSwitchToFrameByElement(): void
     {
         $this->driver->get($this->getTestPageUrl(TestPage::PAGE_WITH_FRAME));
 
@@ -119,7 +119,7 @@ class RemoteTargetLocatorTest extends WebDriverTestCase
     /**
      * @group exclude-saucelabs
      */
-    public function testShouldCreateNewWindow()
+    public function testShouldCreateNewWindow(): void
     {
         self::skipForJsonWireProtocol('Create new window is not supported in JsonWire protocol');
 
@@ -152,7 +152,7 @@ class RemoteTargetLocatorTest extends WebDriverTestCase
     /**
      * @group exclude-saucelabs
      */
-    public function testShouldNotAcceptStringAsFrameIdInW3cMode()
+    public function testShouldNotAcceptStringAsFrameIdInW3cMode(): void
     {
         self::skipForJsonWireProtocol();
 
@@ -169,7 +169,7 @@ class RemoteTargetLocatorTest extends WebDriverTestCase
     /**
      * @group exclude-saucelabs
      */
-    public function testShouldAcceptStringAsFrameIdInJsonWireMode()
+    public function testShouldAcceptStringAsFrameIdInJsonWireMode(): void
     {
         self::skipForW3cProtocol();
 

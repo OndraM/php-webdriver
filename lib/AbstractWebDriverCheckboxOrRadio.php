@@ -70,22 +70,22 @@ abstract class AbstractWebDriverCheckboxOrRadio implements WebDriverSelectInterf
         );
     }
 
-    public function selectByIndex($index)
+    public function selectByIndex($index): void
     {
         $this->byIndex($index);
     }
 
-    public function selectByValue($value)
+    public function selectByValue($value): void
     {
         $this->byValue($value);
     }
 
-    public function selectByVisibleText($text)
+    public function selectByVisibleText($text): void
     {
         $this->byVisibleText($text);
     }
 
-    public function selectByVisiblePartialText($text)
+    public function selectByVisiblePartialText($text): void
     {
         $this->byVisibleText($text, true);
     }
@@ -97,7 +97,7 @@ abstract class AbstractWebDriverCheckboxOrRadio implements WebDriverSelectInterf
      * @param bool $select
      * @throws NoSuchElementException
      */
-    protected function byValue($value, $select = true)
+    protected function byValue($value, $select = true): void
     {
         $matched = false;
         foreach ($this->getRelatedElements($value) as $element) {
@@ -123,7 +123,7 @@ abstract class AbstractWebDriverCheckboxOrRadio implements WebDriverSelectInterf
      * @param bool $select
      * @throws NoSuchElementException
      */
-    protected function byIndex($index, $select = true)
+    protected function byIndex($index, $select = true): void
     {
         $elements = $this->getRelatedElements();
         if (!isset($elements[$index])) {
@@ -140,7 +140,7 @@ abstract class AbstractWebDriverCheckboxOrRadio implements WebDriverSelectInterf
      * @param bool $partial
      * @param bool $select
      */
-    protected function byVisibleText($text, $partial = false, $select = true)
+    protected function byVisibleText($text, $partial = false, $select = true): void
     {
         foreach ($this->getRelatedElements() as $element) {
             $normalizeFilter = sprintf(
@@ -221,7 +221,7 @@ abstract class AbstractWebDriverCheckboxOrRadio implements WebDriverSelectInterf
     /**
      * Selects a checkbox or a radio button.
      */
-    protected function selectOption(WebDriverElement $element)
+    protected function selectOption(WebDriverElement $element): void
     {
         if (!$element->isSelected()) {
             $element->click();
@@ -231,7 +231,7 @@ abstract class AbstractWebDriverCheckboxOrRadio implements WebDriverSelectInterf
     /**
      * Deselects a checkbox or a radio button.
      */
-    protected function deselectOption(WebDriverElement $element)
+    protected function deselectOption(WebDriverElement $element): void
     {
         if ($element->isSelected()) {
             $element->click();

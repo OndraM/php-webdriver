@@ -71,7 +71,7 @@ class RemoteStatus
         return $this->meta;
     }
 
-    protected function setMeta(array $meta)
+    protected function setMeta(array $meta): void
     {
         unset($meta['ready'], $meta['message']);
 
