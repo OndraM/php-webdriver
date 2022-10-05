@@ -106,12 +106,12 @@ class RemoteWebDriverTest extends TestCase
     }
 
     /**
-     * @param string $method
-     * @param string $expectedExceptionMessage
      * @dataProvider provideMethods
      */
-    public function testShouldThrowExceptionOnUnexpectedNullValueFromRemoteEnd($method, $expectedExceptionMessage): void
-    {
+    public function testShouldThrowExceptionOnUnexpectedNullValueFromRemoteEnd(
+        string $method,
+        string $expectedExceptionMessage
+    ): void {
         $executorMock = $this->createMock(HttpCommandExecutor::class);
         $executorMock->expects($this->once())
             ->method('execute')
@@ -125,7 +125,7 @@ class RemoteWebDriverTest extends TestCase
         call_user_func([$this->driver, $method], $this->createMock(WebDriverBy::class));
     }
 
-    public function provideMethods()
+    public function provideMethods(): array
     {
         return [
             ['findElement', 'Unexpected server response to findElement command'],

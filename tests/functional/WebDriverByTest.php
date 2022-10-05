@@ -12,16 +12,12 @@ class WebDriverByTest extends WebDriverTestCase
 {
     /**
      * @dataProvider provideTextElements
-     * @param string $webDriverByLocatorMethod
-     * @param string $webDriverByLocatorValue
-     * @param string $expectedText
-     * @param string $expectedAttributeValue
      */
     public function testShouldFindTextElementByLocator(
-        $webDriverByLocatorMethod,
-        $webDriverByLocatorValue,
-        $expectedText = null,
-        $expectedAttributeValue = null
+        string $webDriverByLocatorMethod,
+        string $webDriverByLocatorValue,
+        string $expectedText = null,
+        string $expectedAttributeValue = null
     ): void {
         $this->driver->get($this->getTestPageUrl(TestPage::INDEX));
 
@@ -42,7 +38,7 @@ class WebDriverByTest extends WebDriverTestCase
     /**
      * @return array[]
      */
-    public function provideTextElements()
+    public function provideTextElements(): array
     {
         return [
             'id' => ['id', 'id_test', 'Test by ID'],

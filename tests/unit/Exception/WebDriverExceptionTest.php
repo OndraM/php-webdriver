@@ -18,11 +18,12 @@ class WebDriverExceptionTest extends TestCase
     /**
      * @dataProvider provideJsonWireStatusCode
      * @dataProvider provideW3CWebDriverErrorCode
-     * @param int $errorCode
-     * @param string $expectedExceptionType
+     * @param int|string $errorCode
      */
-    public function testShouldThrowProperExceptionBasedOnWebDriverErrorCode($errorCode, $expectedExceptionType): void
-    {
+    public function testShouldThrowProperExceptionBasedOnWebDriverErrorCode(
+        $errorCode,
+        string $expectedExceptionType
+    ): void {
         try {
             WebDriverException::throwException($errorCode, 'exception message', ['results']);
         } catch (WebDriverException $e) {
@@ -36,7 +37,7 @@ class WebDriverExceptionTest extends TestCase
     /**
      * @return array[]
      */
-    public function provideJsonWireStatusCode()
+    public function provideJsonWireStatusCode(): array
     {
         return [
             [1337, UnrecognizedExceptionException::class],
@@ -80,7 +81,7 @@ class WebDriverExceptionTest extends TestCase
     /**
      * @return array[]
      */
-    public function provideW3CWebDriverErrorCode()
+    public function provideW3CWebDriverErrorCode(): array
     {
         return [
                 ['element click intercepted', ElementClickInterceptedException::class],

@@ -43,7 +43,7 @@ class FileUploadTest extends WebDriverTestCase
         $this->assertSame('10', $uploadedFileSize);
     }
 
-    private function getTestFilePath()
+    private function getTestFilePath(): string
     {
         return __DIR__ . '/Fixtures/FileUploadTestFile.txt';
     }

@@ -103,11 +103,8 @@ class WebDriverRadiosTest extends WebDriverTestCase
 
     /**
      * @dataProvider provideSelectByVisibleTextData
-     *
-     * @param string $text
-     * @param string $value
      */
-    public function testSelectByVisibleText($text, $value): void
+    public function testSelectByVisibleText(string $text, string $value): void
     {
         $radios = new WebDriverRadios($this->driver->findElement(WebDriverBy::xpath('//input[@type="radio"]')));
         $radios->selectByVisibleText($text);
@@ -117,7 +114,7 @@ class WebDriverRadiosTest extends WebDriverTestCase
     /**
      * @return array[]
      */
-    public function provideSelectByVisibleTextData()
+    public function provideSelectByVisibleTextData(): array
     {
         return [
             ['J 3 B', 'j3b'],
@@ -127,11 +124,8 @@ class WebDriverRadiosTest extends WebDriverTestCase
 
     /**
      * @dataProvider provideSelectByVisiblePartialTextData
-     *
-     * @param string $text
-     * @param string $value
      */
-    public function testSelectByVisiblePartialText($text, $value): void
+    public function testSelectByVisiblePartialText(string $text, string $value): void
     {
         $radios = new WebDriverRadios($this->driver->findElement(WebDriverBy::xpath('//input[@type="radio"]')));
         $radios->selectByVisiblePartialText($text);
@@ -141,7 +135,7 @@ class WebDriverRadiosTest extends WebDriverTestCase
     /**
      * @return array[]
      */
-    public function provideSelectByVisiblePartialTextData()
+    public function provideSelectByVisiblePartialTextData(): array
     {
         return [
             ['3 B', 'j3b'],

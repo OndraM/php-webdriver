@@ -10,7 +10,7 @@
 <?php
 if (empty($_FILES)) {
     echo '<h2>File upload not detected</h2>';
-} elseif (isset($_FILES['upload']) && $_FILES['upload']['error'] == 4) {
+} elseif (isset($_FILES['upload']) && $_FILES['upload']['error'] === UPLOAD_ERR_NO_FILE) {
     echo '<h2>Form was submitted but no file was selected for upload</h2>';
 } else {
     echo sprintf('<h2>Received %d uploaded file(s)</h2>', count($_FILES));

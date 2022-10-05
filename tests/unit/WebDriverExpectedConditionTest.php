@@ -410,12 +410,10 @@ class WebDriverExpectedConditionTest extends TestCase
         $this->assertTrue(call_user_func($condition->getApply(), $this->driverMock));
     }
 
-    /**
-     * @param RemoteWebElement $element
-     * @param int $expectedNumberOfFindElementCalls
-     */
-    private function setupDriverToReturnElementAfterAnException($element, $expectedNumberOfFindElementCalls): void
-    {
+    private function setupDriverToReturnElementAfterAnException(
+        RemoteWebElement $element,
+        int $expectedNumberOfFindElementCalls
+    ): void {
         $consecutiveReturn = [
             $this->throwException(new NoSuchElementException('')),
         ];

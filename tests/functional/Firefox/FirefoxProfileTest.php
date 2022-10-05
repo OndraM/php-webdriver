@@ -110,7 +110,7 @@ class FirefoxProfileTest extends TestCase
         );
     }
 
-    protected function getTestPageUrl($path)
+    protected function getTestPageUrl($path): string
     {
         $host = 'http://localhost:8000';
         if ($alternateHost = getenv('FIXTURES_HOST')) {

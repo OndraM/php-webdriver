@@ -77,9 +77,8 @@ class ScreenshotHelperTest extends TestCase
     /**
      * @dataProvider provideInvalidData
      * @param mixed $data
-     * @param string $expectedExceptionMessage
      */
-    public function testShouldThrowExceptionWhenInvalidDataReceived($data, $expectedExceptionMessage): void
+    public function testShouldThrowExceptionWhenInvalidDataReceived($data, string $expectedExceptionMessage): void
     {
         $executorMock = $this->createMock(RemoteExecuteMethod::class);
         $executorMock->expects($this->once())
@@ -94,7 +93,7 @@ class ScreenshotHelperTest extends TestCase
         $helper->takePageScreenshot();
     }
 
-    public function provideInvalidData()
+    public function provideInvalidData(): array
     {
         return [
             'empty response' => [null, 'Error taking screenshot, no data received from the remote end'],

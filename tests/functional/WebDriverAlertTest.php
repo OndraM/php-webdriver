@@ -77,7 +77,7 @@ class WebDriverAlertTest extends WebDriverTestCase
         $this->assertSame('Text entered to prompt', $this->getResultText());
     }
 
-    private function getResultText()
+    private function getResultText(): string
     {
         return $this->driver
             ->findElement(WebDriverBy::id('result'))

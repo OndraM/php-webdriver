@@ -250,10 +250,7 @@ class WebDriverActionsTest extends WebDriverTestCase
         );
     }
 
-    /**
-     * @return array
-     */
-    private function retrieveListContent()
+    private function retrieveListContent(): array
     {
         return [
             $this->retrieveLoggerEvents(WebDriverBy::cssSelector('#sortable1')),

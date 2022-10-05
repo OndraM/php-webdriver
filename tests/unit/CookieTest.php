@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  */
 class CookieTest extends TestCase
 {
-    public function testShouldSetAllProperties()
+    public function testShouldSetAllProperties(): Cookie
     {
         $cookie = new Cookie('cookieName', 'someValue');
         $cookie->setPath('/bar');
@@ -33,7 +33,6 @@ class CookieTest extends TestCase
 
     /**
      * @depends testShouldSetAllProperties
-     * @param Cookie $cookie
      */
     public function testShouldBeConvertibleToArray(Cookie $cookie): void
     {
@@ -77,7 +76,6 @@ class CookieTest extends TestCase
 
     /**
      * @depends testShouldSetAllProperties
-     * @param Cookie $cookie
      */
     public function testShouldProvideArrayAccessToProperties(Cookie $cookie): void
     {
@@ -160,14 +158,16 @@ class CookieTest extends TestCase
 
     /**
      * @dataProvider provideInvalidCookie
-     * @param string $name
-     * @param string $value
-     * @param string $domain
-     * @param string $expectedMessage
+     * @param mixed $name
+     * @param mixed $value
      */
-    public function testShouldValidateCookieOnConstruction($name, $value, $domain, $expectedMessage): void
-    {
-        if ($expectedMessage) {
+    public function testShouldValidateCookieOnConstruction(
+        $name,
+        $value,
+        ?string $domain,
+        ?string $expectedMessage
+    ): void {
+        if ($expectedMessage !== null) {
             $this->expectException(\InvalidArgumentException::class);
             $this->expectExceptionMessage($expectedMessage);
         }
@@ -183,7 +183,7 @@ class CookieTest extends TestCase
     /**
      * @return array[]
      */
-    public function provideInvalidCookie()
+    public function provideInvalidCookie(): array
     {
         return [
             // $name, $value, $domain, $expectedMessage

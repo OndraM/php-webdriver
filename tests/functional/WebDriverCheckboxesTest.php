@@ -125,11 +125,8 @@ class WebDriverCheckboxesTest extends WebDriverTestCase
 
     /**
      * @dataProvider provideSelectByVisibleTextData
-     *
-     * @param string $text
-     * @param string $value
      */
-    public function testSelectByVisibleText($text, $value): void
+    public function testSelectByVisibleText(string $text, string $value): void
     {
         $checkboxes = new WebDriverCheckboxes(
             $this->driver->findElement(WebDriverBy::xpath('//input[@type="checkbox"]'))
@@ -143,7 +140,7 @@ class WebDriverCheckboxesTest extends WebDriverTestCase
     /**
      * @return array[]
      */
-    public function provideSelectByVisibleTextData()
+    public function provideSelectByVisibleTextData(): array
     {
         return [
             ['J 2 B', 'j2b'],
@@ -153,11 +150,8 @@ class WebDriverCheckboxesTest extends WebDriverTestCase
 
     /**
      * @dataProvider provideSelectByVisiblePartialTextData
-     *
-     * @param string $text
-     * @param string $value
      */
-    public function testSelectByVisiblePartialText($text, $value): void
+    public function testSelectByVisiblePartialText(string $text, string $value): void
     {
         $checkboxes = new WebDriverCheckboxes(
             $this->driver->findElement(WebDriverBy::xpath('//input[@type="checkbox"]'))
@@ -171,7 +165,7 @@ class WebDriverCheckboxesTest extends WebDriverTestCase
     /**
      * @return array[]
      */
-    public function provideSelectByVisiblePartialTextData()
+    public function provideSelectByVisiblePartialTextData(): array
     {
         return [
             ['2 B', 'j2b'],

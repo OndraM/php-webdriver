@@ -46,9 +46,8 @@ class WebDriverSelectTest extends WebDriverTestCase
 
     /**
      * @dataProvider provideSelectSelector
-     * @param string $selector
      */
-    public function testShouldGetOptionsOfSelect($selector): void
+    public function testShouldGetOptionsOfSelect(string $selector): void
     {
         $originalElement = $this->driver->findElement(WebDriverBy::cssSelector($selector));
         $select = new WebDriverSelect($originalElement);
@@ -62,7 +61,7 @@ class WebDriverSelectTest extends WebDriverTestCase
     /**
      * @return array[]
      */
-    public function provideSelectSelector()
+    public function provideSelectSelector(): array
     {
         return [
             'simple <select>' => ['#select'],
@@ -423,20 +422,14 @@ class WebDriverSelectTest extends WebDriverTestCase
         $select->deselectByVisiblePartialText('First');
     }
 
-    /**
-     * @return WebDriverSelect
-     */
-    protected function getWebDriverSelectForSimpleSelect()
+    protected function getWebDriverSelectForSimpleSelect(): WebDriverSelect
     {
         $originalElement = $this->driver->findElement(WebDriverBy::cssSelector('#select'));
 
         return new WebDriverSelect($originalElement);
     }
 
-    /**
-     * @return WebDriverSelect
-     */
-    protected function getWebDriverSelectForMultipleSelect()
+    protected function getWebDriverSelectForMultipleSelect(): WebDriverSelect
     {
         $originalElement = $this->driver->findElement(WebDriverBy::cssSelector('#select-multiple'));
 
@@ -445,7 +438,6 @@ class WebDriverSelectTest extends WebDriverTestCase
 
     /**
      * @param string[] $expectedValues
-     * @param array $options
      */
     private function assertContainsOptionsWithValues(array $expectedValues, array $options): void
     {

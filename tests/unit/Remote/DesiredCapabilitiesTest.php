@@ -87,14 +87,11 @@ class DesiredCapabilitiesTest extends TestCase
 
     /**
      * @dataProvider provideBrowserCapabilities
-     * @param string $setupMethod
-     * @param string $expectedBrowser
-     * @param string $expectedPlatform
      */
     public function testShouldProvideShortcutSetupForCapabilitiesOfEachBrowser(
-        $setupMethod,
-        $expectedBrowser,
-        $expectedPlatform
+        string $setupMethod,
+        string $expectedBrowser,
+        string $expectedPlatform
     ): void {
         /** @var DesiredCapabilities $capabilities */
         $capabilities = call_user_func([DesiredCapabilities::class, $setupMethod]);
@@ -106,7 +103,7 @@ class DesiredCapabilitiesTest extends TestCase
     /**
      * @return array[]
      */
-    public function provideBrowserCapabilities()
+    public function provideBrowserCapabilities(): array
     {
         return [
             ['android', WebDriverBrowserType::ANDROID, WebDriverPlatform::ANDROID],
@@ -175,8 +172,6 @@ class DesiredCapabilitiesTest extends TestCase
 
     /**
      * @dataProvider provideW3cCapabilities
-     * @param DesiredCapabilities $inputJsonWireCapabilities
-     * @param array $expectedW3cCapabilities
      */
     public function testShouldConvertCapabilitiesToW3cCompatible(
         DesiredCapabilities $inputJsonWireCapabilities,
@@ -191,7 +186,7 @@ class DesiredCapabilitiesTest extends TestCase
     /**
      * @return array[]
      */
-    public function provideW3cCapabilities()
+    public function provideW3cCapabilities(): array
     {
         $chromeOptions = new ChromeOptions();
         $chromeOptions->addArguments(['--headless']);

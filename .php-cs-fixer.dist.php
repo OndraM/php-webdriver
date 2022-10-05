@@ -8,6 +8,7 @@ return (new PhpCsFixer\Config())
     ->setRules([
         '@PSR2' => true,
         'array_syntax' => ['syntax' => 'short'],
+        'array_push' => true,
         'binary_operator_spaces' => true,
         'blank_line_before_statement' => ['statements' => ['return', 'try']],
         'braces' => ['allow_single_line_anonymous_class_with_empty_body' => true, 'allow_single_line_closure' => true],
