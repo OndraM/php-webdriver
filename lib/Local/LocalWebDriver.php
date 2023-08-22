@@ -14,11 +14,6 @@ abstract class LocalWebDriver extends RemoteWebDriver
 {
     /**
      * @param string $selenium_server_url
-     * @param null $desired_capabilities
-     * @param null $connection_timeout_in_ms
-     * @param null $request_timeout_in_ms
-     * @param null $http_proxy
-     * @param null $http_proxy_port
      * @throws LogicException
      * @return RemoteWebDriver
      * @todo Remove in next major version (should not be inherited)
@@ -38,8 +33,6 @@ abstract class LocalWebDriver extends RemoteWebDriver
     /**
      * @param string $session_id
      * @param string $selenium_server_url
-     * @param null $connection_timeout_in_ms
-     * @param null $request_timeout_in_ms
      * @throws LogicException
      * @return RemoteWebDriver
      * @todo Remove in next major version (should not be inherited)

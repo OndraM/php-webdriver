@@ -10,9 +10,6 @@ use Facebook\WebDriver\WebDriverPoint;
  */
 class WebDriverCoordinates
 {
-    /**
-     * @var null
-     */
     private $onScreen;
     /**
      * @var callable
@@ -28,7 +25,6 @@ class WebDriverCoordinates
     private $auxiliary;
 
     /**
-     * @param null $on_screen
      * @param string $auxiliary
      */
     public function __construct($on_screen, callable $in_view_port, callable $on_page, $auxiliary)
