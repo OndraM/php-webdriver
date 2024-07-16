@@ -46,7 +46,6 @@ class HttpCommandExecutor implements WebDriverCommandExecutor
         DriverCommand::GET_ALL_COOKIES => ['method' => 'GET', 'url' => '/session/:sessionId/cookie'],
         DriverCommand::GET_NAMED_COOKIE => ['method' => 'GET', 'url' => '/session/:sessionId/cookie/:name'],
         DriverCommand::GET_ALL_SESSIONS => ['method' => 'GET', 'url' => '/sessions'],
-        DriverCommand::GET_AVAILABLE_LOG_TYPES => ['method' => 'GET', 'url' => '/session/:sessionId/log/types'],
         DriverCommand::GET_CURRENT_URL => ['method' => 'GET', 'url' => '/session/:sessionId/url'],
         DriverCommand::GET_CURRENT_WINDOW_HANDLE => ['method' => 'GET', 'url' => '/session/:sessionId/window_handle'],
         DriverCommand::GET_ELEMENT_ATTRIBUTE => [
@@ -68,7 +67,6 @@ class HttpCommandExecutor implements WebDriverCommandExecutor
         DriverCommand::GET_ELEMENT_SIZE => ['method' => 'GET', 'url' => '/session/:sessionId/element/:id/size'],
         DriverCommand::GET_ELEMENT_TAG_NAME => ['method' => 'GET',  'url' => '/session/:sessionId/element/:id/name'],
         DriverCommand::GET_ELEMENT_TEXT => ['method' => 'GET', 'url' => '/session/:sessionId/element/:id/text'],
-        DriverCommand::GET_LOG => ['method' => 'POST', 'url' => '/session/:sessionId/log'],
         DriverCommand::GET_PAGE_SOURCE => ['method' => 'GET', 'url' => '/session/:sessionId/source'],
         DriverCommand::GET_SCREEN_ORIENTATION => ['method' => 'GET', 'url' => '/session/:sessionId/orientation'],
         DriverCommand::GET_CAPABILITIES => ['method' => 'GET', 'url' => '/session/:sessionId'],
@@ -81,10 +79,6 @@ class HttpCommandExecutor implements WebDriverCommandExecutor
         DriverCommand::GET_WINDOW_SIZE => ['method' => 'GET', 'url' => '/session/:sessionId/window/:windowHandle/size'],
         DriverCommand::GO_BACK => ['method' => 'POST', 'url' => '/session/:sessionId/back'],
         DriverCommand::GO_FORWARD => ['method' => 'POST', 'url' => '/session/:sessionId/forward'],
-        DriverCommand::IS_ELEMENT_DISPLAYED => [
-            'method' => 'GET',
-            'url' => '/session/:sessionId/element/:id/displayed',
-        ],
         DriverCommand::IS_ELEMENT_ENABLED => ['method' => 'GET', 'url' => '/session/:sessionId/element/:id/enabled'],
         DriverCommand::IS_ELEMENT_SELECTED => ['method' => 'GET', 'url' => '/session/:sessionId/element/:id/selected'],
         DriverCommand::MAXIMIZE_WINDOW => [
@@ -99,7 +93,6 @@ class HttpCommandExecutor implements WebDriverCommandExecutor
         DriverCommand::NEW_SESSION => ['method' => 'POST', 'url' => '/session'],
         DriverCommand::QUIT => ['method' => 'DELETE', 'url' => '/session/:sessionId'],
         DriverCommand::REFRESH => ['method' => 'POST', 'url' => '/session/:sessionId/refresh'],
-        DriverCommand::UPLOAD_FILE => ['method' => 'POST', 'url' => '/session/:sessionId/file'], // undocumented
         DriverCommand::SEND_KEYS_TO_ACTIVE_ELEMENT => ['method' => 'POST', 'url' => '/session/:sessionId/keys'],
         DriverCommand::SET_ALERT_VALUE => ['method' => 'POST', 'url' => '/session/:sessionId/alert_text'],
         DriverCommand::SEND_KEYS_TO_ELEMENT => ['method' => 'POST', 'url' => '/session/:sessionId/element/:id/value'],
@@ -130,6 +123,15 @@ class HttpCommandExecutor implements WebDriverCommandExecutor
         DriverCommand::TOUCH_MOVE => ['method' => 'POST', 'url' => '/session/:sessionId/touch/move'],
         DriverCommand::TOUCH_SCROLL => ['method' => 'POST', 'url' => '/session/:sessionId/touch/scroll'],
         DriverCommand::TOUCH_UP => ['method' => 'POST', 'url' => '/session/:sessionId/touch/up'],
+
+        DriverCommand::IS_ELEMENT_DISPLAYED => [
+            'method' => 'GET',
+            'url' => '/session/:sessionId/element/:id/displayed',
+        ],
+        DriverCommand::GET_LOG => ['method' => 'POST', 'url' => '/session/:sessionId/se/log'],
+        DriverCommand::GET_AVAILABLE_LOG_TYPES => ['method' => 'GET', 'url' => '/session/:sessionId/se/log/types'],
+        DriverCommand::UPLOAD_FILE => ['method' => 'POST', 'url' => '/session/:sessionId/se/file'],
+
         DriverCommand::CUSTOM_COMMAND => [],
     ];
     /**
