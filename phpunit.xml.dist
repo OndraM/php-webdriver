@@ -3,6 +3,7 @@
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          colors="true"
          bootstrap="tests/bootstrap.php"
+        convertDeprecationsToExceptions="true"
 >
     <testsuites>
         <testsuite name="unit">
@@ -22,4 +23,10 @@
     <listeners>
         <listener class="Facebook\WebDriver\ReportSauceLabsStatusListener"/>
     </listeners>
+
+    <php>
+        <ini name="error_reporting" value="E_ALL"/>
+        <ini name="display_errors" value="1"/>
+        <ini name="display_startup_errors" value="1"/>
+    </php>
 </phpunit>
